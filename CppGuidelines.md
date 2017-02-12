@@ -96,3 +96,7 @@ double foo(int x)
 
 A program should compile cleanly; that is, it should compile without errors (or it won’t run) and warnings
 (most warnings point to a potential problem).
+
+## Reference
+
+This guideline is based on [C++ Core Guidelines](http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines) and [style document of Programming: Principles and Practice using C++](http://www.stroustrup.com/Programming/PPP-style.pdf).
