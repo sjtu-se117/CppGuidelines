@@ -97,6 +97,49 @@ double foo(int x)
 A program should compile cleanly; that is, it should compile without errors (or it won’t run) and warnings
 (most warnings point to a potential problem).
 
+## Avoid legacy practices
+
+Although C++ was formerly named "C with Classes", this is not the case
+nowadays. A common practice in C or ancient C++ may be considered harmful in
+modern C++.
+
+### Throw away ancient tools
+
+IDEs and compilers such as VC6, Borland Turbo C++ are so old that they cannot
+speak even C++98. Use these tools if you want to keep away from modern ISO C++.
+
+### Use C++ equivalences to C library functions
+
+* Use `std::cout`, `std::fstream` instead of `printf` and `FILE *`.
+* Use `std::string` instead of `char[]` and `strxxx()`.
+* Use smart pointers for individual objects, and STL (Standard Template
+  Library) containers for multiple objects instead of (error-prone) dynamic
+  memory management with `malloc()` and `free()`. Even if you want manual heap
+  allocation (not recommended), use `new`, `new []` and `delete`, `delete []`
+  instead.
+* Use `std::sort`, `std::binary_search` instead of slow and hard-to-use
+  `qsort()` and `bsearch()`.
+* Use RNGs (Randon Number Generators) in `<random>` header instead of `rand()` in
+  `<cstdlib>`.
+
+And much more.
+
+### Use Pointers at your own risk
+
+Pointers can easily go wrong. Besides smart pointers and STL containers
+mentioned above, references can also replace some pointer uses, especially in
+function parameters.
+
+There are exceptions though, but only use pointers if you know the risk.
+
+### Get familiar with STL
+
+There is no linked list, hash table or fancy algorithm provided by the C
+library, but they are all there in C++ STL. If you want some data structure or
+algorithm, check for STL first before you write your own version.
+
+In one word, do not reinvent the wheels.
+
 ## Reference
 
 This guideline is based on [C++ Core Guidelines](http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines) and [style document of Programming: Principles and Practice using C++](http://www.stroustrup.com/Programming/PPP-style.pdf).
