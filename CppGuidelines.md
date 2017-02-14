@@ -3,7 +3,7 @@
 ## Write in ISO Standard C++
 
 * Avoid dependence on undefined behavior (e.g. undefined order of evaluation)
-* Be aware of constructs with implementation defined meaning (e.g. sizeof(int))
+* Be aware of constructs with implementation defined meaning (e.g. `sizeof(int)`)
 * Do not use any extensions provided by specific compilers (e.g. g++, microsoft's cl.exe)
 
 ## Don't place two statement on the same line
@@ -36,16 +36,16 @@ auto x = m * v1 + vv;   // multiply m with v1 and add the result to vv
 
 ## Use a consistent naming style
 
-Use a single capital letter to start a type name, e.g. Table and Temperature.
-Names of non-types are not capitalized, e.g. x and var.
+Use a single capital letter to start a type name, e.g. `Table` and `Temperature`.
+Names of non-types are not capitalized, e.g. `x` and `var`.
 
-We use underscores for multi-part names, e.g. initial\_value and symbol\_tbl.
+We use underscores for multi-part names, e.g. `initial_value` and `symbol_tbl`.
 Use meaningful names. Don’t overuse acronyms. Don’t use excessively
-long names, such as remaining\_free\_slots\_in\_symbol\_table.
+long names, such as `remaining_free_slots_in_symbol_table`.
 
 The length of a name should be roughly proportional to the size of its scope.
 
-Be careful when using letters and digits that are easily misread: 0Oo1lL.
+Be careful when using letters and digits that are easily misread: `0Oo1lL`.
 
 Use `ALL_CAPS` for macro names only.
 
