@@ -1,10 +1,15 @@
 # SE117 C++ Guidelines
 
+Chapters marked as advanced are for those who have some experience with C/C++.
+Don't panic if you do not understand them.
+
 ## Write in ISO Standard C++
 
 * Avoid dependence on undefined behavior (e.g. undefined order of evaluation)
 * Be aware of constructs with implementation defined meaning (e.g. `sizeof(int)`)
 * Do not use any extensions provided by specific compilers (e.g. g++, microsoft's cl.exe)
+* Throw away ancient tools such as VC6 and Borland Turbo C++. They are so old
+  that they cannot speak even ISO C++98
 
 ## Don't place two statement on the same line
 
@@ -97,16 +102,11 @@ double foo(int x)
 A program should compile cleanly; that is, it should compile without errors (or it won’t run) and warnings
 (most warnings point to a potential problem).
 
-## Avoid legacy practices
+## Avoid legacy practices (advanced)
 
 Although C++ was formerly named "C with Classes", this is not the case
 nowadays. A common practice in C or ancient C++ may be considered harmful in
 modern C++.
-
-### Throw away ancient tools
-
-IDEs and compilers such as VC6, Borland Turbo C++ are so old that they cannot
-speak even C++98. Use these tools if you want to keep away from modern ISO C++.
 
 ### Use C++ equivalences to C library functions
 
