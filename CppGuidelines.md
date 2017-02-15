@@ -1,10 +1,15 @@
 # SE117 C++ Guidelines
 
+Chapters marked as advanced are for those who have some experience with C/C++.
+Don't panic if you do not understand them.
+
 ## Write in ISO Standard C++
 
 * Avoid dependence on undefined behavior (e.g. undefined order of evaluation)
 * Be aware of constructs with implementation defined meaning (e.g. `sizeof(int)`)
 * Do not use any extensions provided by specific compilers (e.g. g++, microsoft's cl.exe)
+* Throw away ancient tools such as VC6 and Borland Turbo C++. They are so old
+  that they cannot speak even ISO C++98
 
 ## Don't place two statement on the same line
 
@@ -96,6 +101,44 @@ double foo(int x)
 
 A program should compile cleanly; that is, it should compile without errors (or it won’t run) and warnings
 (most warnings point to a potential problem).
+
+## Avoid legacy practices (advanced)
+
+Although C++ was formerly named "C with Classes", this is not the case
+nowadays. A common practice in C or ancient C++ may be considered harmful in
+modern C++.
+
+### Use C++ equivalences to C library functions
+
+* Use `std::cout`, `std::fstream` instead of `printf` and `FILE *`.
+* Use `std::string` instead of `char[]` and `strxxx()`.
+* Use smart pointers for individual objects, and STL (Standard Template
+  Library) containers for multiple objects instead of (error-prone) dynamic
+  memory management with `malloc()` and `free()`. Even if you want manual heap
+  allocation (not recommended), use `new`, `new []` and `delete`, `delete []`
+  instead.
+* Use `std::sort`, `std::binary_search` instead of slow and hard-to-use
+  `qsort()` and `bsearch()`.
+* Use RNGs (Randon Number Generators) in `<random>` header instead of `rand()` in
+  `<cstdlib>`.
+
+And much more.
+
+### Use Pointers at your own risk
+
+Pointers can easily go wrong. Besides smart pointers and STL containers
+mentioned above, references can also replace some pointer uses, especially in
+function parameters.
+
+There are exceptions though, but only use pointers if you know the risk.
+
+### Get familiar with STL
+
+There is no linked list, hash table or fancy algorithm provided by the C
+library, but they are all there in C++ STL. If you want some data structure or
+algorithm, check for STL first before you write your own version.
+
+In one word, do not reinvent the wheels.
 
 ## Reference
 
